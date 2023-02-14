@@ -2,7 +2,7 @@ name: Dependabot version updates
 on:
   schedule:
     # Vérifiez les mises à jour chaque jour à 10h00 UTC
-    - cron: "4 16 * * *"
+    - cron: "7 16 * * *"
 jobs:
   dependabot:
     runs-on: ubuntu-latest
