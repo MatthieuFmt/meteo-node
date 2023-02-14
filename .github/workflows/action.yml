@@ -15,3 +15,6 @@ jobs:
 
       - name: Exécuter les tests
         run: npx mocha
+
+      - name: Exécuter eslint
+        run: npm run lint
