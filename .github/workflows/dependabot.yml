@@ -12,6 +12,6 @@ jobs:
         uses: dependabot/dependabot-core@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          directory: "/"
+          directory: "../"
           update: "true"
           schedule: "interval: 5m"
