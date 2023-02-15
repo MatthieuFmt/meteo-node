@@ -1,21 +1,17 @@
-name: Dependabot version updates
-on:
-  schedule:
-    # Vérifiez les mises à jour chaque jour à 10h00 UTC
-    - cron: "7 16 * * *"
-jobs:
-  dependabot:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Dependabot version updates
-        uses: dependabot/dependabot-core@master
-        with:
-          # Chemin d'accès à votre fichier de configuration Dependabot
-          config-file-path: .github/dependabot.yml
-          # Token d'accès GitHub
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Options de journalisation (décommentez si vous avez besoin de déboguer)
-          # verbose: true
-          # debug: true
+- name: Dependabot
+  on:
+    schedule:
+      - cron: "*/2 * * * *"
+  jobs:
+    dependabot:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Dependabot
+          uses: dependabot/dependabot-core@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            directory: /
+            update: true
+            package_manager: "npm"

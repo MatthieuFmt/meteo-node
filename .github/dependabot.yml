@@ -2,6 +2,6 @@ version: 2
 updates:
   # Met à jour les dépendances NPM
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "."
     schedule:
       interval: "daily"
