@@ -1,7 +1,7 @@
 name: Dependabot
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/2 * * * *"
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: "../"
           update: "true"
-          schedule: "interval: 5m"
+          schedule: "interval: 2m"
