@@ -9,7 +9,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run Dependabot
-        uses: dependabot/dependabot-core@master
+        uses: dependabot/dependabot-core@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: "/"
