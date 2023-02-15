@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install the app dependencies
+RUN npm install -g npm@9.4.2
 RUN npm install
 
 # Start the app
