@@ -1,20 +1,17 @@
-name: Vérifier le code, installer les dépendances et exécuter les tests
-
-on: [push, pull_request]
-
+name: Docker Build and Run
+on: [push]
 jobs:
-  test:
+  build-and-run:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout du code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Installer les dépendances
-        run: npm install
+      - name: Build Docker image
+        run: |
+          docker build -t matthieufmt/img-ci:${{ github.sha }} .
+          docker login -u matthieufmt -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push matthieufmt/img-ci:${{ github.sha }}
 
-      - name: Exécuter les tests
-        run: npx mocha
-
-      - name: Exécuter eslint
-        run: npm run lint
+      - name: Run Docker container
+        run: docker run -d -p 8080:8080 matthieufmt/img-ci:${{ github.sha }}
