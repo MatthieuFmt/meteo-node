@@ -1,17 +1,17 @@
-- name: Dependabot
-  on:
-    schedule:
-      - cron: "*/10 * * * *"
-  jobs:
-    dependabot:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - name: Dependabot
-          uses: dependabot/dependabot-core@main
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            directory: /
-            update: true
-            package_manager: "npm"
+name: Dependabot
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Dependabot
+        uses: dependabot/dependabot-core@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          directory: /
+          update: true
+          package_manager: "npm"
